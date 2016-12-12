@@ -5,7 +5,9 @@ class PackagesController < ApplicationController
   # GET /packages.json
   def index
     #binding.pry
-    @packages = Package.all
+    if current_user
+      @packages = current_user.agency.packages
+    end
   end
 
   # GET /packages/1
