@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container form-group" >
+
+<div class="row">
+<div class="col-sm-12">
+<div class="col-sm-5">
+<h2>Selected Package</h2>
+<%= image_tag @package.image.url %>
+</div>
+<div class="col-sm-6">
+<strong>Name</strong>:<%= @package.name %><br/>
+<strong>Price</strong>:<%= @package.price %><br/>
+<strong>Duration</strong>:<%= @package.duration %><br/>
+
+
+<%= button_to 'Make Payment',class: "btn btn-primary" %>
+
+<%= button_to 'Cancel',class: "btn btn-default"  %>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+

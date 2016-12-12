@@ -1,0 +1,83 @@
+<script type="text/javascript">
+  function f1(){
+    //alert("Hello");
+    document.myform.submit(this.form);
+  }
+</script>
+<%= form_tag(home_index_path, :name=>'myform')  do %>
+  <div id="sidemenu">
+    
+    <table class="table table" border="0">
+  <tbody>
+    <tr><th width="60%">Agency</th><th><%= link_to "Clear Filter", home_index_path() %></th></tr> 
+    <% @agencies.each do |agency| %>
+      <tr>
+        <td colspan=2>
+<%= check_box_tag "agency_ids[]", agency.id, @selected_agencies.include?(agency.id.to_s), :onclick => "javascript: f1();" %><%=agency.name %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>
+<table class="table table" border="0">
+  <tbody>
+    <tr><th width="60%">PriceRange</th><th><%= link_to "Clear Filter", home_index_path() %></th>
+    </tr>  
+    <% @prices.each do |price| %>
+      <tr>
+        <td>
+<%= check_box_tag "price_ids[]", price.price, @selected_prices.include?(price.price.to_s), :onclick => "javascript: f1();" %><%=price.price %>
+
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>
+<table class="table table" border="0">
+  <tbody>
+    <tr><tr><th width="60%">Duration</th><th><%= link_to "Clear Filter", home_index_path() %></th></tr>  
+    <% @durations.each do |duration| %>
+      <tr>
+        <td>
+        <%= check_box_tag "duration_ids[]", duration.duration, @selected_durations.include?(duration.duration.to_s), :onclick => "javascript: f1();" %><%=duration.duration %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+
+
+<div id="content">
+
+<div id="my-posts">    
+ <table class="table table-bordered" border="0">
+  <tbody>
+      <tr>
+    <% @packages.each do |package| %>
+    <% @a = @a +1 %>
+        <td width="311" height="200"><h3><%= Agency.find(package.agency_id).name %></h3><center><%= image_tag package.image.url %></center><h2><%= package.name %></h2><p>Price: <%= package.price %></p><p>Duration: <%= package.duration %></p><p>Some description goes here for each package....</p>
+        <%= link_to "Book Now", book_now_path(package), class: "btn btn-default" %></td>
+
+    <% if @a ==2 %>
+    </tr>
+    <tr>
+    <% end %>
+    <% end %>
+      </tr>
+  </tbody>
+</table>
+<% end %>
+</div>
+
+<div id="with-button">
+    <center><%= will_paginate @packages, :params => {:agency_ids => params[:agency_ids],:price_ids => params[:price_ids],:duration_ids => params[:duration_ids] }, renderer: BootstrapPagination::Rails %></center>
+</div>
+
+
+
+
+
+
+

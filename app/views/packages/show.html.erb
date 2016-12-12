@@ -1,0 +1,22 @@
+<%= image_tag @package.image.url %>
+<%= image_tag @package.image.url(:medium) %>
+<%= image_tag @package.image.url(:thumb) %>
+<p>
+  <strong>Name:</strong>
+  <%= @package.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @package.price %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @package.duration %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_package_path(@package,:agency_id=>@package.agency_id) %> |
+<%= link_to 'Back', packages_path(:agency_id=>@package.agency_id) %>
