@@ -1,0 +1,143 @@
+
+<%= form_for @pilgrim , url: {action: "create"} do |f| %>  
+<div class="form-group row">
+<label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :firstname %></label>
+    <%= f.text_field :firstname %>
+  </div>
+  </div>
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :middlename %></label>
+    <%= f.text_field :middlename %>
+  </div>
+  </div>
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :lastname %></label>
+    <%= f.text_field :lastname %>
+  </div>
+  </div>
+  </div>
+  </div><!--end of form-group-->
+ </div><!--end of row-->
+ <div class="form-group row">
+ <label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :passport_number %></label>
+    <%= f.number_field :passport_number %>
+  </div>
+   </div>
+   <div class="form-group row">
+   <label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :gender %></label>
+    <%= f.text_field :gender %>
+  </div>
+   </div>
+   <div class="form-group row">
+   <label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :age_group%></label>
+    <%= f.text_field :age_group %>
+  </div>
+  </div>
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :email %></label>
+    <%= f.text_field :email %>
+  </div>
+  </div>
+<div class="form-group row">
+<label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :mobile_number %></label>
+    <%= f.text_field :mobile_number %>
+  </div>
+  </div>
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-3 col-form-label">
+  
+    <%= f.label :Passport %></label>
+    <%= f.file_field :image %>
+  </div>
+  </div>
+  <%= f.fields_for :copilgrims do |ff| %>
+  <% render "copilgrims",:ff => ff %>
+  <%end%>
+  <div class="form-group">
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+
+    <%= link_to "Cancel", root_path, class: "btn btn-default" %></td>
+    </div>
+
+ <!-- <h2> Add Passengers </h2>
+
+  <%= f.fields_for :copilgrims do |ff| %>
+    <div class="field">
+    <%= ff.label :firstname,"First name:", class: "control-label" %>&nbsp;&nbsp;&nbsp;
+    <%= ff.text_field :firstname %>
+    </div>
+    </div>
+    <div class="form-group row">
+    <label for="example-text-input" class="col-xs-3 col-form-label">
+    <div class="field">
+      <%= ff.label :middlename %>&nbsp;&nbsp;&nbsp;
+      <%= ff.text_field :middlename %>
+    </div>
+    </div>
+    <div class="col-sm-4">
+    <div class="field">
+      <%= ff.label :lastname %>&nbsp;&nbsp;&nbsp;
+      <%= ff.text_field :lastname %>
+    </div>
+    </div>
+    </div>
+    </div><!--end of form-group
+   </div><!--end of row
+   <div class="col-sm-4">
+    <div class="field">
+      <%= ff.label :passport_number %>&nbsp;&nbsp;&nbsp;
+      <%= ff.number_field :passport_number %>
+    </div>
+     </div>
+     <div class="col-sm-4">
+    <div class="field">
+      <%= ff.label :gender %>&nbsp;&nbsp;&nbsp;
+      <%= ff.text_field :gender %>
+    </div>
+     </div>
+     <div class="col-sm-4">
+    <div class="field">
+      <%= ff.label :age_group%>&nbsp;&nbsp;&nbsp;
+      <%= ff.text_field :age_group %>
+    </div>
+    </div>
+    <div class="col-sm-4">
+    <div class="field">
+      <%= ff.label :email %>&nbsp;&nbsp;&nbsp;
+      <%= ff.text_field :email %>
+    </div>
+    </div>
+  <div class="col-sm-4">
+    <div class="field">
+      <%= ff.label :mobile_number %>&nbsp;&nbsp;&nbsp;
+      <%= ff.text_field :mobile_number %>
+    </div>
+    </div> -->
+
+
+
+  
+
+
+</div>
+</div>
+<% end %>
+<% end %>
+
+

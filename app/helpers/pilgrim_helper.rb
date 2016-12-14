@@ -1,0 +1,2 @@
+module PilgrimHelper
+end

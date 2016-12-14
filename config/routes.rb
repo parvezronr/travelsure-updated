@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+  get 'pilgrim/:id/new' , to: "pilgrim#new", as: "pilgrim_new"
+
+  
+  post 'pilgrim/create'
+
+  get 'pilgrim/show'
+  
+
+  get 'pilgrim/index'
+
+
   resources :packages
   get 'home/index'
   post 'home/index'
