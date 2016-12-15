@@ -34,8 +34,8 @@
    <div class="form-group row">
    <label for="example-text-input" class="col-xs-3 col-form-label">
   
-    <%= f.label :gender %></label>
-    <%= f.text_field :gender %>
+    <%= f.label :Gender %></label>
+    <%= f.select :gender, "<option></option><option>Male</option><option>Female</option>".html_safe %>
   </div>
    </div>
    <div class="form-group row">

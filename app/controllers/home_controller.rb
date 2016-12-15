@@ -1,4 +1,8 @@
 class HomeController < ApplicationController
+  def contact_us
+  end
+  def about_us
+  end
   def book_now
     @package = Package.find params[:id]
   end

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/contact_us'
+  get 'home/about_us'
   get 'pilgrim/:id/new' , to: "pilgrim#new", as: "pilgrim_new"
+
 
   
   post 'pilgrim/create'

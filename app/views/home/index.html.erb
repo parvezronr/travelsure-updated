@@ -58,7 +58,7 @@
     <% @packages.each do |package| %>
     <% @a = @a +1 %>
         <td width="311" height="200"><h3><%= Agency.find(package.agency_id).name %></h3><center><%= image_tag package.image.url %></center><h2><%= package.name %></h2><p>Price: <%= package.price %></p><p>Duration: <%= package.duration %></p><p>Some description goes here for each package....</p>
-        <%= link_to "Book Now", pilgrim_new_path(package), class: "btn btn-default" %></td>
+        <%= link_to "Book Now", pilgrim_new_path(package), class: "btn btn-primary" %></td>
 
     <% if @a ==2 %>
     </tr>
