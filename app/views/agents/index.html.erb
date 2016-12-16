@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Agencies</h1>
+
+
+    <% @agents.each do |agency| %>
+      <tr>
+        <td><%= agency.first_name %></td>
+       
+    <% end %>
+ 
