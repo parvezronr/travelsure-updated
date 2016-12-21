@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  #users = User.create({email: 'email@admin.com', password: 'password', password_confirmation: 'password'},
+   #                 :as => :admin)
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -10,6 +12,6 @@ class User < ActiveRecord::Base
 after_create :assign_default_role
 
   def assign_default_role
-    self.add_role(:user) if self.roles.blank?
+    self.add_role(:travelar) if self.roles.blank?
   end
 end

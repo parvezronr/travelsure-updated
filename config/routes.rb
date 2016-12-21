@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
+  get 'agencies/approval'
+  get 'agencies/:id/approve', :to => 'agencies#approve', :as => 'parvez'
+
   get 'home/contact_us'
   get 'home/about_us'
+  get 'home/home_page'
   get 'pilgrim/:id/new' , to: "pilgrim#new", as: "pilgrim_new"
-  resources :agents
-
-
   
+  resources :agents  
   post 'pilgrim/create'
-
   get 'pilgrim/show'
-  
-
   get 'pilgrim/index'
 
 
@@ -22,6 +21,7 @@ Rails.application.routes.draw do
     member do
   get 'home/traveler_dashboard'
   post 'home/traveler_dashboard'
+  get 'home/agnet_dashboard'
    end
   end
   
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
+  get 'home/user_dashboard'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

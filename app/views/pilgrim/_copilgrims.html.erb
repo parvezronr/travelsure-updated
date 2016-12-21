@@ -1,28 +1,11 @@
 <h2> Add Passengers </h2>
-<div class="form-group row">
-<label for="example-text-input" class="col-xs-3 col-form-label">
-  
-    <%= ff.label :firstname %></label>
-    <%= ff.text_field :firstname %>
-  </div>
+<div class="container">
 
-  <div class="form-group row">
-<label for="example-text-input" class="col-xs-3 col-form-label">
-  
-    <%= ff.label :mobile_number %></label>
-    <%= ff.text_field :mobile_number %>
-  </div>
+  Passenger Name: <%= ff.text_field :firstname ,placeholder: "Passenger Name"%>&nbsp;&nbsp;&nbsp;
+  Mobile:<%= ff.text_field :mobile_number,placeholder: "Mobile Number" %>&nbsp;&nbsp;&nbsp;
+  Gender: <%= ff.text_field :gender,placeholder: "Gender" %>&nbsp;&nbsp;&nbsp;
+  Passport no: <%= ff.text_field :passport_number,placeholder: "Passport Number" %>&nbsp;&nbsp;&nbsp;<br/>
 
-  <div class="form-group row">
-<label for="example-text-input" class="col-xs-3 col-form-label">
-  
-    <%= ff.label :gender %></label>
-    <%= ff.text_field :gender %>
-  </div>
-
-  <div class="form-group row">
-<label for="example-text-input" class="col-xs-3 col-form-label">
-  
-    <%= ff.label :passport_number %></label>
-    <%= ff.text_field :passport_number %>
-  </div>
+  <%= link_to "Back", root_path, class: "btn btn-warning" %></td>
+   
+</div>

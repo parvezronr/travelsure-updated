@@ -1,4 +1,5 @@
 class PilgrimController < ApplicationController
+   before_action :authenticate_user!
   def new
   	@pilgrim = Pilgrim.new
   	@copilgrim = @pilgrim.copilgrims.build

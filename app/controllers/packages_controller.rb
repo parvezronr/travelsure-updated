@@ -1,12 +1,14 @@
 class PackagesController < ApplicationController
   before_action :set_package, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+
 
   # GET /packages
   # GET /packages.json
   def index
     #binding.pry
-    if current_user.agency.packages
-      @packages = current_user.agency.packages
+    if current_user.agencies.packages
+      @packages = current_user.agencies.packages
     end
   end
 

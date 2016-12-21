@@ -1,0 +1,22 @@
+<div class >
+<table id="test">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Status</th>
+         
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        
+        <td><%= link_to 'Approve', parvez_path(user) %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>

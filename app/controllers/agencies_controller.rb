@@ -1,6 +1,6 @@
 class AgenciesController < ApplicationController
   before_action :set_agency, only: [:show, :edit, :update, :destroy]
-   before_action :authenticate_user!
+
   # GET /agencies
   # GET /agencies.json
   def index
@@ -10,6 +10,22 @@ class AgenciesController < ApplicationController
   # GET /agencies/1
   # GET /agencies/1.json
   def show
+  end
+
+  def approval
+    @agents = Agent.where(:approve=> false)
+  end
+
+  def approve
+
+    @agent = Agent.find params[:id]
+    if @agent.update!(:approve => true)
+    @agent.user.add_role :agent
+
+    #LifesaverMailer.approval_mail(@users).deliver_now
+
+    redirect_to agencies_approval_path
+  end
   end
 
   # GET /agencies/new

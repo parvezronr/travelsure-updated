@@ -39,6 +39,8 @@ RailsAdmin.config do |config|
     end
   end
 
+#config.included_models = ["agency", "package", "user"]
+config.excluded_models << 'role'
   ### Popular gems integration
 
   ## == Devise ==

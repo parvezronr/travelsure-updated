@@ -1,27 +1,30 @@
 class HomeController < ApplicationController
+  def traveler_dashboard
+  end
+
+  def agent_dashboard
+  end
+
+  def home_page
+  end
+
   def contact_us
   end
+
   def about_us
   end
+
   def book_now
     @package = Package.find params[:id]
   end
 
 
 def index
-  	@a = 0
-
-    #@packages = Package.paginate(page: params[:page], per_page: 2).order('created_at DESC')
-
-    #@packages = Package.paginate(:page => params[:page], :per_page => 3)
-
-
-
+   #render "home_page"
+  	@a = 0  
   	@agencies = Agency.all
-
     
-    @prices = Package.select(:price).distinct
-
+    @prices = Pricelimit.select(:price)
     @durations = Package.select(:duration).distinct
 
 =begin
@@ -48,7 +51,10 @@ def index
     end
 
     if params[:price_ids]
-      @packages = Package.where("price IN (?)", params[:price_ids])
+      #binding.pry
+      #@packages = Package.where("price IN (?)", params[:price_ids])
+      @packages = Package.where("price >= ? and price <= ?",0, params[:price_ids].collect {|p| p})
+
     end
 
     if params[:duration_ids]
@@ -75,8 +81,5 @@ def index
     @packages = @packages.paginate(:page => params[:page], :per_page => 4)
 
 
-  end
-
-  def traveler_dashboard
   end
 end
